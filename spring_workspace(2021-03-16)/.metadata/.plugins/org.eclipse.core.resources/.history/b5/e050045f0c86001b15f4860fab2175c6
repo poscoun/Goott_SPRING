@@ -1,0 +1,5 @@
+package spring_app02;
+
+public interface Bevarage {
+   public void drink(String name);
+}

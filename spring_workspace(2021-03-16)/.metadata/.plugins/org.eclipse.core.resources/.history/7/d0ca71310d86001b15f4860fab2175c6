@@ -1,0 +1,11 @@
+package spring_app02;
+
+public class Coffeelmpel implements Beverage {
+
+	@Override
+	public void drink(String name) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

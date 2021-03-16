@@ -1,0 +1,18 @@
+package spring_app02;
+
+public class MachineCofee implements Beverage {
+	
+	String product;
+	
+	public public MachineCofee() {
+		this.product = "테스트캡슐";
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public void drink(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,18 @@
+package spring_app02;
+
+public class CoffeeImple implements Beverage {
+
+   String product;
+   
+   public CoffeeImple() {
+      // TODO Auto-generated constructor stub
+      this.product="초코우유";
+   }
+   
+   @Override
+   public void drink(String name) {
+      // TODO Auto-generated method stub
+      System.out.println(name+"님이 "+product+"을/를 홀짝홀짝 마십니다.");
+   }
+
+}

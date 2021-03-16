@@ -1,0 +1,5 @@
+package spring_app04_maven;
+
+public class Greeting {
+
+}
