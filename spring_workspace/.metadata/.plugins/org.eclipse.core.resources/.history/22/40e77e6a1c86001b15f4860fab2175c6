@@ -1,5 +1,0 @@
-package spring_app03;
-
-public interface Printer {
-
-}
