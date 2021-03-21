@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+			<property name="url" value="jdbc:mysql://localhost:3306/goott7?useSSL=false"/>
+			<property name="username" value="scott"/>
+			<property name="password" value="tiger"/>
+</bean> -->
+
+	<!-- connection pooling 방식 (pom.xml에 commons-io, commons-dbcp2, commons-pool 2.7버전으로 추가)	-->
+	<bean id="pool" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+														<!-- destroy-method="close" : 다 쓰고 나면 자동으로 close() 수행 -->
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/goott7?useSSL=false"/>
+		<property name="username" value="scott"/>
+		<property name="password" value="tiger"/>
+		
+		<!-- 초기에 몇개를 dbms에 연결해 놓을지 지정 -->
+		<property name="initialSize" value="3"/>
+		<!-- 최대 연결 개수를 정의 -->
+		<property name="maxTotal" value="20"/>
+		<!-- 지정된 수보다 연결이 남을 경우 삭제 지정 -->
+		<property name="maxIdle" value="6000"/>
+		
+</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<!-- <property name="dataSource" ref="dataSource" /> -->
+		<property name="dataSource" ref="pool" />
+</bean>
+	
+	<bean id="dao" class="spring_app13_jdbc.MysqlDAO">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	
+</bean>
+
+</beans>
