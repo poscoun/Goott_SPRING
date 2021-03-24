@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+<!-- <bean id="beanNameUrlHandlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean> -->
+
+<!-- 
+   SimpleUrlHandlerMapping : url을 통한 매핑시 context-path를 제외한 나머지 경로로 비교
+   
+   ex) http://localhost:9090/spring_web05/hi.do => context-path : http://localhost:9090/spring_web05/
+      
+   - 경로 매핑 방식
+   1) ? : 1개의 문자 매핑
+   2) * : 0개 이상의 문자 매핑
+   3) ** : 0개 이상의 디렉토리와 매핑
+ -->
+
+<bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+   <property name="alwaysUseFullPath" value="true" />
+   <property name="mappings">
+      <props>
+         <prop key="/*.do">hi</prop>
+         <prop key="/**/*.do">test</prop>
+         <prop key="/wow/**/*.do">now</prop>
+      </props>
+   </property>
+
+</bean>
+
+<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+   <property name="prefix" value="/WEB-INF/jsp/" />
+   <property name="suffix" value=".jsp" />
+</bean>
+<!-- 
+pro에서 /*.do와 /**/*.do로 설정해줬으므로 그냥 써도 됨
+<bean id="/test.do" class="kr.co.goott.spring_web05.TestController"></bean>
+<bean id="/hi.do" class="kr.co.goott.spring_web05.HiController"></bean>
+ -->
+<bean id="test" class="kr.co.goott.spring_web05.TestController"></bean>
+<bean id="hi" class="kr.co.goott.spring_web05.HiController"></bean>
+<bean id="now" class="kr.co.goott.spring_web05.NowController"></bean>
+
+</beans>
