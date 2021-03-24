@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+<!-- advice -->
+<!-- <bean id="advice01" class="spring_aop07_AspectJ_HW.CheckTime_Proxy"></bean> -->
+<bean id="advice02" class="spring_aop07_AspectJ_HW.CheckTime_AspectJ"></bean>
+	
+<!-- target -->
+<bean id="biz" class="spring_aop07_AspectJ_HW.WeaponImple">
+	<property name="type" value="K2" />
+</bean>
+	
+<!-- proxy -->
+<!-- <bean id="proxyBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<property name="target" ref="biz" />
+	<property name="interceptorNames" value="advice01" />
+</bean> -->
+
+<!-- aop -->
+<aop:config>
+	<aop:aspect id="Aspect" ref="advice02">
+		<aop:pointcut expression="execution (public * *(..))" id="checkPoint"/>
+		<aop:around method="logAround" pointcut-ref="checkPoint"/>
+	
+	</aop:aspect>
+</aop:config>
+	
+	
+</beans>

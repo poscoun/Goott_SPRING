@@ -1,0 +1,30 @@
++ AspectJ
+
+ : AOP를 도와주는 라이브러리
+ 
+ - target : 실질적인 비즈니스 로직을 구현하고 있는 코드(메소드)
+ - join point : 메소드 호출하는 시점
+ - advice (횡단 관심사) : join point 에서 실행되어야 할 코드
+ 		ex) 트랜젝션, 로그, 보안, 인증
+ 		
+ - point cut : 여러 개의 join point를 하나로 결합한 것
+ 			 : target 클래스에 advice가 결합된 때 둘 사이의 결합 규칙을 정의한 것
+ 
+   + expression
+    - 각 패턴은 '*'을 이용하여 모든 값을 표현
+    - '..' 을 이용하여 0개 이상이라는 의미를 표현
+    
+    ex) execution(public void set*(..)) : void형 메소드이고, 메소드 이름이 set으로 시작하고, 파라미터가 0개 이상인 메소드
+        execution(* get*(*)) : 이름이 get으로 시작하고 1개의 파라미터를 갖는 메소드
+        execution(* read*(int, ..)) : 메소드 이름이 read로 시작하고 첫번째 파라미터는 타입이 int이고, 1개 이상의
+        							    파라미터를 갖는 메소드
+ 
+ 
+ - weaving : advice 를 핵심코드(비즈니스 로직)에 삽입하는 것
+ 
+> join point
+ <aop:before> : 핵심코드 실행 전 advice 실행
+ <aop:after-returning : 핵심 코드 실행 후 advice 실행
+ <aop:after-throwing : 핵심 코드 중 예외 발생 시 advice 실행
+ <aop:after>         : 핵심 코드 실행 시 advice 실행 (예외 발생 여부 상관 없음)
+ <aop:around>        : 핵심 코드 실행 전/후, 예외 발생 시 advice 실행
