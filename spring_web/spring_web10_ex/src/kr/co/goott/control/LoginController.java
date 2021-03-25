@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginController {
-	
-	@RequestMapping(value = "/member/login.do", method = RequestMethod.GET)
-	public String loginProcess1() {
-		return "login/login";
-	}
-	
 
+   @RequestMapping(value = "/member/login.do", method = RequestMethod.GET)
+   public String loginProcess1() {
+      return "login/login";
+   }
+   
 }

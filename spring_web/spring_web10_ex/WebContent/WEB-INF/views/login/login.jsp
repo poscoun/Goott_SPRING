@@ -7,12 +7,12 @@
 <meta charset="UTF-8">
 <title>login.jsp</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
+ <script type="text/javascript">
    $(function(){
       $('#login').click(function(){
          document.frm.action='<c:url value="/member/login.do"></c:url>';
          document.frm.method="POST";
-         //document.frm.submit();      
+         document.frm.submit();      
       });
       
       $('#reg').click(function(){
@@ -21,6 +21,7 @@
       });
    });
 </script>
+
 </head>
 <body>
 	<h2>login.jsp</h2>
@@ -30,18 +31,18 @@
 				<th>ID</th>
 				<td><input type="text" name="id" id="id" /></td>
 			</tr>
-			
-				<tr>
-					<th>PW</th>
-					<td><input type="text" name="pwd" id="pwd" /></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="button" value="로그인" id="login"/>
-						<input type="button" value="회원가입" id="reg"/>
-					</td>
-				</tr>
-			</table>		
+			<tr>
+				<th>PW</th>
+				<td><input type="password" name="pwd" id="pwd" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="button" value="로그인" id="login" />
+					<input type="button" value="회원가입" id="reg" />
+				</td>
+			</tr>
+		</table>
+
 	</form>
 </body>
 </html>

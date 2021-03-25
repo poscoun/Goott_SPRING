@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>viwe.jsp</title>
+<title>view.jsp</title>
 </head>
 <body>
 	<h2>view.jsp</h2>

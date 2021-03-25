@@ -10,20 +10,22 @@
 <script type="text/javascript">
    $(function(){
       $('#btn').click(function(){
-       /*   console.log($('#id').val());
+    	/*  
+         console.log($('#id').val());
          console.log($('#pwd').val());
          console.log($('#confirm').val());
          console.log($('#email').val());
          
-         	유효성 검사 추가 
-         */
-         document.frm.action ='<c:url value="/register/step3.do"></c:url>';
-         document.frm.method= 'get';
-         document.frm.submit();
+         유효성 검사 추가....
+         
+        */
+        	document.frm.action = '<c:url value="/register/step3.do"></c:url>';
+        	document.frm.method = 'get';
+        	document.frm.submit();
+        
       });
    });
 </script>
-
 </head>
 <body>
    <h1>step2.jsp</h1>
