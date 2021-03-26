@@ -1,0 +1,45 @@
+
+스프링 버전업(버전 안맞아서 충돌)
+https://dist.springsource.com/snapshot/STS4/nightly-distributions.html
+
+for Eclipse 2020-09 (4.17): https://dist.springsource.com/snapshot/TOOLS/sts4/nightly/e4.17
+
+help ->  install new s/w -> add -> name: sts4, 주소복사 -> 전부 선택
+
+C:\eclipse 지움
+
+eclipse.ini
+requiredjavaversion 11=> 1.8
+순서 : 3 먼저 설치 => 4설치
+-------------------------------------------------------------------
+Eclipse IDE 2021-03 R Packages
+C:\Users\goott7\sts_web
+build -> java compiler -> jdk => 1.8 , use --release 체크 풀기 -> 맨 밑 config -> edit -> directory -> jdk 설치되어있는 곳 ,자바 bin이 보이는 곳까지 -> finish ->apply
+sts3 standard install
+emmet 설치
+http://download.emmet.io/eclipse/updates/
+
+file new other -> spring legacy project -> spring mvc project -> name: junitEx02 -> yes -> com.exam.junitTest
+서버세팅 서버탭 -> no servers  are ... -> tomcat9.0 ->브라우저 - C:\apache-tomcat-9.0.43, jre 선택
+javaSE-1.6 바꿔줘야함 buildpath lib -> se1.6 edit -> default 
+project facets -> dynamic web module 4.0, Java 1.8 변경 -> apply 
+targeted runtimes -> tomcat check
+
+-------------------------------------------------------
+pom.xml
+<java-version>1.8</java-version>
+<org.springframework-version>5.2.13.RELEASE</org.springframework-version>
+
+JUnit
+buildpath -> lib -> add lib -> junit4 or 5
+
+한글 깨짐
+sts_encoding_filter.txt 복사
+web.xml 맨 밑에 붙여넣기
+
+====================================
++ 주제: 자유주제
+ - 포지션 : 5명 (2명 - 컨트롤, 모델 | 3명 - 뷰)
+ - 5교시 : 조별 회의 ( 주제 , 레퍼런스 찾기)
+   - 설계 (erd설계) : 문서화 뷰 담당
+ - 6교시 : 포지션 회의
